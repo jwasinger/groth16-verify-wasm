@@ -1,0 +1,35 @@
+{
+  "name": "groth16-verify-wasm",
+  "version": "0.0.1",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "build": "npx asc assembly/groth16_verify/main.ts -b assembly/groth16_verify/out/main.wasm -t assembly/groth16_verify/out/main.wat --validate && cd assembly/groth16_verify && gulp",
+    "benchmark:interpreter": "node --wasm-interpret-all index.js tests/groth16-verify.yml",
+    "benchmark:liftoff": "node index.js tests/groth16-verify.yml",
+    "benchmark:host_funcs": "node index.js tests/groth16-verify-bn.yml"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jwasinger/groth16-verify-wasm.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jwasinger/groth16-verify-wasm/issues"
+  },
+  "homepage": "https://github.com/jwasinger/groth16-verify-wasm#readme",
+  "dependencies": {
+    "assemblyscript": "0.8.1",
+    "bn.js": "^5.1.1",
+    "circom": "0.0.34",
+    "circomlib": "0.0.20",
+    "ethereumjs-util": "^6.2.0",
+    "gulp": "^4",
+    "js-yaml": "^3.13.1",
+    "snarkjs": "^0.1.20",
+    "wabt": "1.0.11",
+    "websnark": "0.0.5"
+  }
+}
